@@ -21,13 +21,18 @@ function getInput(){
         xhr.response.forEach(element => {
             let imageInner = document.getElementById('image-container')
             let img = document.createElement('IMG')
+            img.setAttribute("id", "idOne")
             let br = document.createElement('BR')
-            img.src = element.url
+            img.src = element.download_url
             imageInner.appendChild(img)
             imageInner.appendChild(br)
+
              });
 
        
+    }
+    xhr.onerror = () =>{
+        console.log('Ошибка! Статус ответа: ', xhr.status);
     }
     xhr.send()
    
